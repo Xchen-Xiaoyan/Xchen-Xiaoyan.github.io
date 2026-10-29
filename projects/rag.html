@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232563eb'/%3E%3Cstop offset='1' stop-color='%237c3aed'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Ctext x='32' y='43' font-size='30' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3EXC%3C/text%3E%3C/svg%3E">
   <title>AI 行业新闻分析与 RAG 问答系统 | Xiaoyan Chen</title>
   <link rel="stylesheet" href="../assets/css/style.css">
   <script src="../assets/js/lang.js"></script>
@@ -10,7 +11,7 @@
 <body>
 <nav class="nav">
   <div class="wrap">
-    <a class="brand" href="../index.html"><span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></a>
+    <a class="brand" href="../index.html"><span class="mono">XC</span><span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></a>
     <div class="nav-links">
       <a class="keep" href="../index.html#projects"><span class="zh">全部项目</span><span class="en">All projects</span></a>
       <button class="lang-btn" data-toggle-lang type="button"><span class="zh">EN</span><span class="en">中文</span></button>
@@ -37,7 +38,7 @@
 
 <section style="padding-top:8px">
   <div class="wrap">
-    <div class="metrics">
+    <div class="metrics reveal">
       <div class="metric"><b>0.80 / 0.98</b><span>Hit@1 / Hit@10</span></div>
       <div class="metric"><b>81% → 100%</b><span class="zh">无法回答题的正确拒答率</span><span class="en">correct abstention on unanswerable questions</span></div>
       <div class="metric"><b>75</b><span class="zh">题人工审核评测集</span><span class="en">reviewed eval questions</span></div>
@@ -45,11 +46,11 @@
     </div>
 
     <div class="grid-2" style="margin-top:28px; align-items:start">
-      <figure>
+      <figure class="reveal">
         <div class="shot"><img src="../assets/img/rag-demo.jpg" alt="Live demo answering a question with citations"></div>
         <figcaption><span class="zh">在线演示:回答中的 [n] 可点击跳转到对应新闻。</span><span class="en">Live demo: every [n] links to the news article it came from.</span></figcaption>
       </figure>
-      <div class="prose">
+      <div class="prose reveal">
         <h2 style="margin-top:0"><span class="zh">要解决的问题</span><span class="en">The problem</span></h2>
         <p><span class="zh">想了解 AI 对某个行业的影响,自己翻新闻太慢,直接问大模型又无法核实,还可能编造。我希望做一个"快、而且每句话都能追溯到原文"的工具。</span><span class="en">Reading the news yourself is slow; asking a chatbot is fast but unverifiable and sometimes invented. I wanted something fast where every claim traces back to a source.</span></p>
         <h2><span class="zh">我做了什么</span><span class="en">What I built</span></h2>
@@ -62,7 +63,7 @@
       </div>
     </div>
 
-    <div class="prose">
+    <div class="prose reveal">
       <h2><span class="zh">评测:不只看"能跑",还要知道它有多可信</span><span class="en">Evaluation: not just "it works", but how far to trust it</span></h2>
       <ul>
         <li><span class="zh">LLM 生成候选题,经规则过滤、LLM 评审和检索反证三道质检,再逐题审核,最终得到 <b>75 题</b>(单文档 / 跨文档 / 无法回答)。</span><span class="en">LLM-written candidates went through rule, LLM-critic and retrieval-probe filters, then per-question review, leaving <b>75 questions</b> (single-doc, multi-doc and unanswerable).</span></li>
