@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Olist 电商经营分析看板 | Xiaoyan Chen</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/lang.js"></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></a>
+    <div class="nav-links">
+      <a class="keep" href="../index.html#projects"><span class="zh">全部项目</span><span class="en">All projects</span></a>
+      <button class="lang-btn" data-toggle-lang type="button"><span class="zh">EN</span><span class="en">中文</span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="detail-hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← <span class="zh">返回项目列表</span><span class="en">Back to projects</span></a>
+    <h1><span class="zh">Olist 电商经营分析看板(Power BI)</span><span class="en">Olist E-commerce Performance Dashboard (Power BI)</span></h1>
+    <p class="lead">
+      <span class="zh">基于巴西电商 Olist 公开的 10 万笔订单、9 张业务表,完成数据清洗、星型建模、指标体系和交互看板,回答"增长从哪里来、问题出在哪里、该对谁做什么"。</span>
+      <span class="en">Built on Olist's public data (100k orders, 9 tables): cleaning, a star schema, a metric layer and an interactive dashboard that answer where growth came from, what is going wrong, and who to act on.</span>
+    </p>
+    <div class="tags"><span class="tag">SQL (DuckDB)</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">RFM</span><span class="tag">Cohort analysis</span></div>
+    <div class="btns">
+      <a class="btn primary" href="https://github.com/Xchen-Xiaoyan/olist-bi-dashboard" target="_blank" rel="noopener"><span class="zh">查看代码与报表文件</span><span class="en">Code &amp; report files</span></a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="metrics">
+      <div class="metric"><b>+140%</b><span class="zh">GMV 同比,几乎全部来自拉新</span><span class="en">YoY GMV, almost all from new buyers</span></div>
+      <div class="metric"><b>3.0%</b><span class="zh">复购率</span><span class="en">repeat purchase rate</span></div>
+      <div class="metric"><b>4.29 vs 2.27</b><span class="zh">准时 vs 延迟订单的平均评分</span><span class="en">avg review, on-time vs late</span></div>
+      <div class="metric"><b>10% → 74%</b><span class="zh">10% 的卖家造成 74% 的延迟订单</span><span class="en">of sellers cause 74% of late orders</span></div>
+    </div>
+
+    <figure style="margin-top:28px">
+      <div class="shot"><img src="../assets/img/olist-tour.gif" alt="Dashboard page tour"></div>
+      <figcaption><span class="zh">6 个页面:经营总览、GMV 拆解、履约与体验、卖家分析、用户分层(RFM)、用户留存。另有品类钻取页和悬停提示页。</span><span class="en">Six pages: overview, GMV decomposition, fulfillment, sellers, RFM segments, retention. A category drill-through page and a tooltip page are also included.</span></figcaption>
+    </figure>
+
+    <div class="prose">
+      <h2><span class="zh">核心发现</span><span class="en">Findings</span></h2>
+      <ul>
+        <li><span class="zh"><b>增长靠拉新。</b>按 GMV = 买家数 × 人均订单数 × 客单价 拆解,2018 年 GMV 同比 +140%,买家数 +139%,另外两项基本持平;新买家贡献约 97% 的 GMV。</span><span class="en"><b>Growth is acquisition.</b> Decomposing GMV = buyers × orders per buyer × AOV, 2018 grew +140% YoY with buyers +139% while the other two stayed flat. New buyers made up ~97% of GMV.</span></li>
+        <li><span class="zh"><b>配送时效决定评分。</b>延迟超过 7 天的订单平均只有 1.70 分;黑五与 2018 年 2–3 月准时率跌到 81%–88%,评分同步走低。</span><span class="en"><b>Delivery drives reviews.</b> Orders over 7 days late average 1.70 stars; on-time rates fell to 81–88% around Black Friday and Feb–Mar 2018, and reviews fell with them.</span></li>
+        <li><span class="zh"><b>问题高度集中。</b>头部 10% 的卖家贡献 66.5% 的 GMV,延迟最多的 10% 卖家造成 73.8% 的延迟订单。只针对少数卖家做治理就能见效。</span><span class="en"><b>Problems are concentrated.</b> The top 10% of sellers make 66.5% of GMV, and the 10% with the most delays cause 73.8% of late orders, so targeting a few sellers works.</span></li>
+        <li><span class="zh"><b>召回目标明确。</b>RFM 分层中,"高价值待唤醒"客户只占 9.4% 的买家,却贡献 21.7% 的 GMV。</span><span class="en"><b>A clear reactivation target.</b> RFM shows lapsed high-value buyers are 9.4% of buyers but 21.7% of GMV.</span></li>
+      </ul>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px">
+      <figure><div class="shot"><img src="../assets/img/olist-fulfillment.jpg" alt="Fulfillment page" loading="lazy"></div>
+        <figcaption><span class="zh">履约与体验:送达时效 vs 评分、订单量与准时率、履约漏斗</span><span class="en">Fulfillment: lateness vs reviews, volume vs on-time rate, funnel</span></figcaption></figure>
+      <figure><div class="shot"><img src="../assets/img/olist-sellers.jpg" alt="Seller page" loading="lazy"></div>
+        <figcaption><span class="zh">卖家分析:规模 × 准时率散点图,延迟订单按卖家所在州</span><span class="en">Sellers: size × on-time scatter, late orders by seller state</span></figcaption></figure>
+      <figure><div class="shot"><img src="../assets/img/olist-rfm.jpg" alt="RFM page" loading="lazy"></div>
+        <figcaption><span class="zh">用户分层:各 RFM 分层的买家与 GMV 占比</span><span class="en">RFM segments: share of buyers and GMV</span></figcaption></figure>
+      <figure><div class="shot"><img src="../assets/img/olist-retention.jpg" alt="Retention page" loading="lazy"></div>
+        <figcaption><span class="zh">用户留存:同期群热力矩阵</span><span class="en">Retention: cohort heatmap</span></figcaption></figure>
+    </div>
+
+    <div class="prose">
+      <h2><span class="zh">技术实现</span><span class="en">How it's built</span></h2>
+      <ul>
+        <li><span class="zh"><b>口径与建模</b>:用 <code>customer_unique_id</code> 识别真实买家(<code>customer_id</code> 每单一个,会让复购率变成 0);订单 / 商品双粒度事实表 + 四张维度表,并以对账断言校验 GMV。</span><span class="en"><b>Definitions &amp; model</b>: buyers identified by <code>customer_unique_id</code> (<code>customer_id</code> is per order and would make repeat rate zero); order- and item-grain facts with four dimensions, and GMV reconciled by assertion.</span></li>
+        <li><span class="zh"><b>33 个 DAX 指标</b>:时间智能、复购率、漏斗转化、<code>TOPN</code> 头部卖家集中度、随所选指标变化的动态标题。</span><span class="en"><b>33 DAX measures</b>: time intelligence, repeat rate, funnel conversion, <code>TOPN</code> seller concentration, and dynamic titles that follow the selected metric.</span></li>
+        <li><span class="zh"><b>报表即代码</b>:Power BI 报表以 PBIP 文本格式由 Python 生成,可以用 git 管理和审阅。</span><span class="en"><b>Report as code</b>: the Power BI report is generated by Python in the text-based PBIP format, so it can be versioned and reviewed in git.</span></li>
+      </ul>
+      <div class="callout">
+        <span class="zh"><b>怎么确认数字是对的:</b>SQL 和 Power BI 模型各算一遍,用 DAX 查询逐项对账。这一步抓到了两个 bug。一个是 <code>top</code> 是 DAX 保留字。另一个是 <code>BLANK() = FALSE()</code> 为真,导致未送达订单被算成"延迟",圣保罗州卖家的延迟订单数因此从 6,546 修正为 5,015。</span>
+        <span class="en"><b>How I know the numbers are right:</b> SQL and the Power BI model compute everything independently, and DAX queries reconcile them line by line. This caught two bugs. One was that <code>top</code> is a reserved DAX word. The other was that <code>BLANK() = FALSE()</code> evaluates to true, which counted undelivered orders as late; São Paulo sellers' late orders went from 6,546 to 5,015 after the fix.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year">2026</span> <span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 行业新闻分析与 RAG 问答系统 | Xiaoyan Chen</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/lang.js"></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></a>
+    <div class="nav-links">
+      <a class="keep" href="../index.html#projects"><span class="zh">全部项目</span><span class="en">All projects</span></a>
+      <button class="lang-btn" data-toggle-lang type="button"><span class="zh">EN</span><span class="en">中文</span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="detail-hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← <span class="zh">返回项目列表</span><span class="en">Back to projects</span></a>
+    <h1><span class="zh">AI 行业新闻分析与 RAG 问答系统</span><span class="en">AI Industry News Analysis &amp; RAG Q&amp;A System</span></h1>
+    <p class="lead">
+      <span class="zh">问"AI 如何改变某个行业",得到只依据真实新闻、逐句标注来源的回答;新闻库里没有答案时,系统会明确说不知道。</span>
+      <span class="en">Ask how AI is changing an industry and get an answer built only from real news articles, with a source on every sentence. When the archive has no answer, the system says so.</span>
+    </p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">BERTopic</span><span class="tag">BM25</span><span class="tag">bge embeddings</span><span class="tag">Cross-encoder</span><span class="tag">Gemini</span><span class="tag">Ollama</span><span class="tag">FastAPI</span><span class="tag">Streamlit</span></div>
+    <div class="btns">
+      <a class="btn primary" href="https://ai-news-rag.streamlit.app" target="_blank" rel="noopener"><span class="zh">打开在线演示</span><span class="en">Open live demo</span></a>
+      <a class="btn" href="https://github.com/Xchen-Xiaoyan/ai-news-rag" target="_blank" rel="noopener"><span class="zh">查看代码</span><span class="en">View code</span></a>
+      <a class="btn" href="https://github.com/Xchen-Xiaoyan/ai-news-rag/blob/main/eval/REPORT.md" target="_blank" rel="noopener"><span class="zh">评测报告</span><span class="en">Evaluation report</span></a>
+    </div>
+  </div>
+</header>
+
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="metrics">
+      <div class="metric"><b>0.80 / 0.98</b><span>Hit@1 / Hit@10</span></div>
+      <div class="metric"><b>81% → 100%</b><span class="zh">无法回答题的正确拒答率</span><span class="en">correct abstention on unanswerable questions</span></div>
+      <div class="metric"><b>75</b><span class="zh">题人工审核评测集</span><span class="en">reviewed eval questions</span></div>
+      <div class="metric"><b>11s → 1.5s</b><span class="zh">CPU 重排延迟</span><span class="en">CPU rerank latency</span></div>
+    </div>
+
+    <div class="grid-2" style="margin-top:28px; align-items:start">
+      <figure>
+        <div class="shot"><img src="../assets/img/rag-demo.jpg" alt="Live demo answering a question with citations"></div>
+        <figcaption><span class="zh">在线演示:回答中的 [n] 可点击跳转到对应新闻。</span><span class="en">Live demo: every [n] links to the news article it came from.</span></figcaption>
+      </figure>
+      <div class="prose">
+        <h2 style="margin-top:0"><span class="zh">要解决的问题</span><span class="en">The problem</span></h2>
+        <p><span class="zh">想了解 AI 对某个行业的影响,自己翻新闻太慢,直接问大模型又无法核实,还可能编造。我希望做一个"快、而且每句话都能追溯到原文"的工具。</span><span class="en">Reading the news yourself is slow; asking a chatbot is fast but unverifiable and sometimes invented. I wanted something fast where every claim traces back to a source.</span></p>
+        <h2><span class="zh">我做了什么</span><span class="en">What I built</span></h2>
+        <ul>
+          <li><span class="zh"><b>语料</b>:13.5 万篇 AI 新闻,经过句子级网页去噪与转载去重,剩 3.3 万篇 / 18.8 万段;先用 BERTopic、UMAP、HDBSCAN 做主题建模,分析行业影响。</span><span class="en"><b>Corpus</b>: 135k AI news articles, reduced to 33k articles and 188k passages by sentence-level boilerplate removal and syndication dedup. BERTopic, UMAP and HDBSCAN topic modeling mapped impact by industry.</span></li>
+          <li><span class="zh"><b>检索</b>:BM25 与向量检索混合(RRF 融合),再用交叉编码器重排序。</span><span class="en"><b>Retrieval</b>: BM25 and dense vectors fused with RRF, then a cross-encoder reranker.</span></li>
+          <li><span class="zh"><b>生成</b>:要求每句话标注来源;加入"前提校验",问题涉及语料之外的时间或事件时主动拒答;中文问题先改写成英文检索词。</span><span class="en"><b>Generation</b>: every sentence must cite a source; a premise check declines questions about periods or events outside the archive; Chinese questions are rewritten into English queries.</span></li>
+          <li><span class="zh"><b>部署</b>:FastAPI + Streamlit,零成本上线;调用缓存、多模型降级和每日调用上限应对免费额度。</span><span class="en"><b>Serving</b>: FastAPI and Streamlit at $0, with call caching, a per-model fallback chain and a daily budget for free-tier quotas.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="prose">
+      <h2><span class="zh">评测:不只看"能跑",还要知道它有多可信</span><span class="en">Evaluation: not just "it works", but how far to trust it</span></h2>
+      <ul>
+        <li><span class="zh">LLM 生成候选题,经规则过滤、LLM 评审和检索反证三道质检,再逐题审核,最终得到 <b>75 题</b>(单文档 / 跨文档 / 无法回答)。</span><span class="en">LLM-written candidates went through rule, LLM-critic and retrieval-probe filters, then per-question review, leaving <b>75 questions</b> (single-doc, multi-doc and unanswerable).</span></li>
+        <li><span class="zh">消融实验加配对 bootstrap 置信区间:<b>纯向量检索显著差于 BM25</b>(Hit@10 −8.5pp,95% CI [−15.3, −1.7]);重排序让 Hit@1 提升 7–10pp。</span><span class="en">Ablations with paired-bootstrap CIs: <b>dense-only retrieval was significantly worse than BM25</b> (Hit@10 −8.5 pp, 95% CI [−15.3, −1.7]); the reranker added 7–10 pp Hit@1.</span></li>
+        <li><span class="zh">用更强的模型复核本地 7B 裁判:拒答判断可靠(κ 0.87),但它严重低估了幻觉(7% vs 57%)。所以忠实度只采用强裁判的结果。</span><span class="en">Validating the local 7B judge against a stronger model showed it was reliable on abstention (κ 0.87) but badly under-counted hallucinations (7% vs 57%), so faithfulness is reported from the stronger judge only.</span></li>
+      </ul>
+      <div class="callout">
+        <span class="zh"><b>一个负面结果:</b>问题分解没有带来任何提升,延迟还增加了一倍,所以没有上线。追查发现,跨文档题的"漏召回"大多是标注问题:系统其实找到了报道同一事件的另一篇文章。</span>
+        <span class="en"><b>A negative result:</b> query decomposition changed nothing and doubled latency, so it was not shipped. Most multi-doc "misses" turned out to be a labeling artifact: the system had found another article on the same event.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year">2026</span> <span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></footer>
+</body>
+</html>

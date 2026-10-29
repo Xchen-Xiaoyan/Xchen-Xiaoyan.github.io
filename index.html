@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>陈笑颜 Xiaoyan Chen | 数据科学 · 数据分析 · AI 应用</title>
+  <meta name="description" content="Xiaoyan Chen — M.S. Applied Data Science, University of Chicago. Projects in RAG / LLM applications, business intelligence and machine learning.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/lang.js"></script>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></a>
+    <div class="nav-links">
+      <a href="#projects"><span class="zh">项目</span><span class="en">Projects</span></a>
+      <a href="#experience"><span class="zh">经历</span><span class="en">Experience</span></a>
+      <a href="#education"><span class="zh">教育</span><span class="en">Education</span></a>
+      <a href="#skills"><span class="zh">技能</span><span class="en">Skills</span></a>
+      <a class="keep" href="#contact"><span class="zh">联系</span><span class="en">Contact</span></a>
+      <button class="lang-btn" data-toggle-lang type="button"><span class="zh">EN</span><span class="en">中文</span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow"><span class="zh">芝加哥大学 应用数据科学硕士 · 2026 年 12 月毕业</span><span class="en">M.S. Applied Data Science, University of Chicago · Graduating Dec 2026</span></span>
+    <h1><span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span><span class="name-en zh">Xiaoyan Chen</span></h1>
+    <p class="lead">
+      <span class="zh">关注数据科学、数据分析与 AI 应用。我喜欢把问题做完整:从清洗数据、建模分析,到评测结果是否可信,再到做成别人能直接使用的产品。</span>
+      <span class="en">Data science, analytics and applied AI. I like to take a problem end to end: clean the data, model it, check whether the results can be trusted, and ship something other people can use.</span>
+    </p>
+    <div class="btns">
+      <a class="btn primary" href="#projects"><span class="zh">查看项目</span><span class="en">View projects</span></a>
+      <a class="btn" href="https://github.com/Xchen-Xiaoyan" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="mailto:smile202406@163.com">Email</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>4.00 / 4.00</b><span class="zh">芝加哥大学 GPA</span><span class="en">UChicago GPA</span></div>
+      <div class="stat"><b>3</b><span class="zh">段数据 / AI 相关实习</span><span class="en">data &amp; AI internships</span></div>
+      <div class="stat"><b>1</b><span class="zh">个在线可用的 AI 应用</span><span class="en">live AI application</span></div>
+      <div class="stat"><b><span class="zh">13.5 万+</span><span class="en">135k+</span></b><span class="zh">篇新闻的 NLP 语料</span><span class="en">news articles analysed</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="alt" id="projects">
+  <div class="wrap">
+    <h2 class="section-title"><span class="zh">精选项目</span><span class="en">Selected projects</span></h2>
+    <p class="section-sub"><span class="zh">每个项目都有可以查看的代码、结果或在线演示。</span><span class="en">Each comes with code, results or a live demo you can open.</span></p>
+    <div class="cards">
+
+      <article class="card">
+        <a class="thumb" href="projects/rag.html"><img src="assets/img/rag-demo.jpg" alt="RAG demo screenshot" loading="lazy"></a>
+        <div class="body">
+          <h3><span class="zh">AI 行业新闻分析与 RAG 问答系统</span><span class="en">AI Industry News Analysis &amp; RAG Q&amp;A</span><span class="badge">LIVE</span></h3>
+          <p>
+            <span class="zh">在 13 万篇 AI 新闻上做主题建模,再扩展成"逐句引用、无答案即拒答"的问答系统;自建 75 题评测集,正确拒答率由 81% 提升到 100%。</span>
+            <span class="en">Topic modeling on 130k AI news articles, extended into a Q&amp;A system that cites every sentence and declines when the archive can't answer. A 75-question eval set took correct abstention from 81% to 100%.</span>
+          </p>
+          <div class="tags"><span class="tag">RAG</span><span class="tag">BM25 + Dense</span><span class="tag">BERTopic</span><span class="tag">LLM Eval</span><span class="tag">Streamlit</span></div>
+          <div class="links">
+            <a href="projects/rag.html"><span class="zh">详情 →</span><span class="en">Details →</span></a>
+            <a href="https://ai-news-rag.streamlit.app" target="_blank" rel="noopener"><span class="zh">在线演示</span><span class="en">Live demo</span></a>
+            <a href="https://github.com/Xchen-Xiaoyan/ai-news-rag" target="_blank" rel="noopener"><span class="zh">代码</span><span class="en">Code</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb" href="projects/olist-bi.html"><img src="assets/img/olist-overview.jpg" alt="Power BI dashboard" loading="lazy"></a>
+        <div class="body">
+          <h3><span class="zh">Olist 电商经营分析看板</span><span class="en">Olist E-commerce BI Dashboard</span></h3>
+          <p>
+            <span class="zh">10 万笔订单的星型建模、33 个 DAX 指标和 6 页 Power BI 看板;发现增长几乎全靠拉新,10% 的卖家造成 74% 的延迟订单。</span>
+            <span class="en">Star schema over 100k orders, 33 DAX measures and a 6-page Power BI dashboard. Growth came almost entirely from new buyers, and 10% of sellers caused 74% of late orders.</span>
+          </p>
+          <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">SQL</span><span class="tag">RFM</span><span class="tag">Cohort</span></div>
+          <div class="links">
+            <a href="projects/olist-bi.html"><span class="zh">详情 →</span><span class="en">Details →</span></a>
+            <a href="https://github.com/Xchen-Xiaoyan/olist-bi-dashboard" target="_blank" rel="noopener"><span class="zh">代码</span><span class="en">Code</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <a class="thumb placeholder" href="projects/credit-risk.html" aria-label="Credit risk project">📈</a>
+        <div class="body">
+          <h3><span class="zh">信用卡客户违约风险预测</span><span class="en">Credit Card Default Risk Prediction</span></h3>
+          <p>
+            <span class="zh">用 FLAML 自动选择算法与调参,构建 LightGBM 违约预测模型;以 MLflow 追踪实验、对比数据漂移前后表现,并用 Docker 与 Kubernetes 运行可复现的训练流程。</span>
+            <span class="en">LightGBM default model with FLAML for algorithm selection and tuning. MLflow tracked experiments and compared performance before and after data drift, and training ran reproducibly on Docker and Kubernetes.</span>
+          </p>
+          <div class="tags"><span class="tag">LightGBM</span><span class="tag">FLAML</span><span class="tag">MLflow</span><span class="tag">Docker / K8s</span></div>
+          <div class="links">
+            <a href="projects/credit-risk.html"><span class="zh">详情 →</span><span class="en">Details →</span></a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2 class="section-title"><span class="zh">实习经历</span><span class="en">Experience</span></h2>
+    <p class="section-sub"><span class="zh">计算机视觉、信贷数据运营与互联网产品数据分析。</span><span class="en">Computer vision, credit data operations, and product analytics.</span></p>
+    <div class="timeline">
+
+      <div class="item">
+        <div class="item-head">
+          <h3>HERE Technologies <span class="role">· <span class="zh">机器学习 / 计算机视觉项目实习生</span><span class="en">Machine Learning / Computer Vision Project Intern</span></span></h3>
+          <span class="when"><span class="zh">2026.03 – 至今 · 芝加哥</span><span class="en">Mar 2026 – present · Chicago</span></span>
+        </div>
+        <ul>
+          <li><span class="zh">基于 Python 与 Mapillary API 搭建街景图像采集流程,通过地理检索、连续帧截取与可见性筛选构建多视角样本集。</span><span class="en">Built a Python and Mapillary API pipeline for multi-view street imagery, using geographic search, consecutive-frame extraction and visibility filtering.</span></li>
+          <li><span class="zh">集成 Depth Anything 3、VGGT、SAM3,实现目标分割、单目深度估计、三维重建与真实尺度净空高度估计。</span><span class="en">Integrated Depth Anything 3, VGGT and SAM3 for segmentation, monocular depth, 3D reconstruction and real-scale clearance-height estimation.</span></li>
+          <li><span class="zh">建立自动化评估流程,结合真实高度标签分析误差,筛除低质量分割与不稳定深度结果。</span><span class="en">Automated evaluation against ground-truth heights, with error analysis and filtering of low-quality segmentation and unstable depth estimates.</span></li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <h3><span class="zh">北京百融云创科技股份有限公司</span><span class="en">Bairong Cloud Technology</span> <span class="role">· <span class="zh">数据运营管理实习生</span><span class="en">Data Operations Intern</span></span></h3>
+          <span class="when"><span class="zh">2024.10 – 2025.01 · 北京</span><span class="en">Oct 2024 – Jan 2025 · Beijing</span></span>
+        </div>
+        <ul>
+          <li><span class="zh">清洗信贷营销数据,统计接通率、转化率等指标,支持触达策略比较与运营复盘。</span><span class="en">Cleaned credit-marketing data and tracked connection and conversion rates to compare outreach strategies.</span></li>
+          <li><span class="zh">参与首登、重申场景的模型效果回溯,比较评分区间与交叉圈选方案的析出率、授信占比和提升倍数。</span><span class="en">Evaluated targeting models for first-login and repeat-application campaigns by score band, selection rate, approval coverage and lift.</span></li>
+          <li><span class="zh">核对 ASR 转写、标注客户意图并分析 NLU 误判,评估 TTS 合成语音,协助优化外呼话术。</span><span class="en">Reviewed ASR transcripts, labeled intents, analysed NLU errors and evaluated TTS quality to improve voice-bot scripts.</span></li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-head">
+          <h3><span class="zh">北京七上八上科技有限公司</span><span class="en">Qishangbashang Technology</span> <span class="role">· <span class="zh">数据分析实习生(Frog 海外社交产品)</span><span class="en">Data Analyst Intern (Frog social app)</span></span></h3>
+          <span class="when"><span class="zh">2024.06 – 2024.10 · 北京</span><span class="en">Jun 2024 – Oct 2024 · Beijing</span></span>
+        </div>
+        <ul>
+          <li><span class="zh">使用 Hive SQL、Redshift 分析用户行为与钱包商业化指标,按新老用户、地区拆解留存与转化。</span><span class="en">Analysed engagement and wallet monetization with Hive SQL and Redshift, breaking down retention and conversion by cohort and region.</span></li>
+          <li><span class="zh">用 Python / Pandas 自动回填 Excel 报表,减少重复整理工作;制作数据周报与广告效果报告。</span><span class="en">Automated Excel reporting with Python and Pandas, and produced weekly and advertising reports.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="education">
+  <div class="wrap">
+    <h2 class="section-title"><span class="zh">教育背景</span><span class="en">Education</span></h2>
+    <p class="section-sub">&nbsp;</p>
+    <div class="timeline">
+      <div class="item">
+        <div class="item-head">
+          <h3><span class="zh">芝加哥大学</span><span class="en">University of Chicago</span> <span class="role">· <span class="zh">应用数据科学 硕士</span><span class="en">M.S. in Applied Data Science</span></span></h3>
+          <span class="when"><span class="zh">2025.09 – 2026.12(预计)</span><span class="en">Sep 2025 – Dec 2026 (expected)</span></span>
+        </div>
+        <ul>
+          <li>GPA 4.00 / 4.00 <span class="zh">· 专业前 5%</span><span class="en">· top 5%</span></li>
+          <li><span class="zh">核心课程:机器学习、NLP、数据科学统计模型、时间序列分析与预测、大数据与云计算</span><span class="en">Coursework: Machine Learning, NLP, Statistical Modeling, Time Series Analysis, Big Data and Cloud Computing</span></li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="item-head">
+          <h3><span class="zh">威斯康星大学麦迪逊分校</span><span class="en">University of Wisconsin–Madison</span> <span class="role">· <span class="zh">数据科学 / 数学 学士,计算机科学证书</span><span class="en">B.S. Data Science &amp; Mathematics, Certificate in Computer Sciences</span></span></h3>
+          <span class="when"><span class="zh">2021.09 – 2025.05</span><span class="en">Sep 2021 – May 2025</span></span>
+        </div>
+        <ul>
+          <li>GPA 3.90 / 4.00 <span class="zh">· 专业前 5% · 连续三年院长名单</span><span class="en">· top 5% · Dean's List</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title"><span class="zh">技能</span><span class="en">Skills</span></h2>
+    <p class="section-sub">&nbsp;</p>
+    <div class="skills">
+      <div class="skill">
+        <h3><span class="zh">数据与分析</span><span class="en">Data &amp; analytics</span></h3>
+        <div class="tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Pandas</span><span class="tag">DuckDB</span><span class="tag">Hive SQL</span><span class="tag">Redshift</span><span class="tag">PySpark</span><span class="tag">R</span><span class="tag">Excel</span></div>
+      </div>
+      <div class="skill">
+        <h3><span class="zh">机器学习与 AI</span><span class="en">ML &amp; AI</span></h3>
+        <div class="tags"><span class="tag">scikit-learn</span><span class="tag">PyTorch</span><span class="tag">LightGBM</span><span class="tag">BERTopic</span><span class="tag">sentence-transformers</span><span class="tag">RAG</span><span class="tag">LLM evaluation</span><span class="tag">Computer vision</span></div>
+      </div>
+      <div class="skill">
+        <h3><span class="zh">BI 与工程</span><span class="en">BI &amp; engineering</span></h3>
+        <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Streamlit</span><span class="tag">FastAPI</span><span class="tag">MLflow</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Git</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt contact" id="contact">
+  <div class="wrap">
+    <h2 class="section-title"><span class="zh">联系我</span><span class="en">Get in touch</span></h2>
+    <p class="section-sub"><span class="zh">正在寻找数据科学、数据分析、AI 应用与 AI 产品相关的全职机会。</span><span class="en">Looking for full-time roles in data science, analytics, applied AI and AI product.</span></p>
+    <div class="btns">
+      <a class="btn primary" href="mailto:smile202406@163.com">smile202406@163.com</a>
+      <a class="btn" href="https://github.com/Xchen-Xiaoyan" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year">2026</span> <span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></footer>
+
+</body>
+</html>

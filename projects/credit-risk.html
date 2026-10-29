@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>信用卡客户违约风险预测 | Xiaoyan Chen</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="../assets/js/lang.js"></script>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="brand" href="../index.html"><span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></a>
+    <div class="nav-links">
+      <a class="keep" href="../index.html#projects"><span class="zh">全部项目</span><span class="en">All projects</span></a>
+      <button class="lang-btn" data-toggle-lang type="button"><span class="zh">EN</span><span class="en">中文</span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="detail-hero">
+  <div class="wrap">
+    <a class="crumb" href="../index.html#projects">← <span class="zh">返回项目列表</span><span class="en">Back to projects</span></a>
+    <h1><span class="zh">信用卡客户违约风险预测</span><span class="en">Credit Card Customer Default Risk Prediction</span></h1>
+    <p class="lead">
+      <span class="zh">课程团队项目(担任组长):构建违约预测模型,并把实验管理、数据漂移对比和容器化训练做成可复现的流程。</span>
+      <span class="en">Course team project (team lead). Built a default-prediction model and made experiment tracking, drift comparison and containerized training reproducible.</span>
+    </p>
+    <div class="tags"><span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">FLAML</span><span class="tag">MLflow</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
+  </div>
+</header>
+
+<section style="padding-top:8px">
+  <div class="wrap prose">
+    <h2 style="margin-top:0"><span class="zh">我负责的部分</span><span class="en">What I did</span></h2>
+    <ul>
+      <li><span class="zh"><b>数据与特征</b>:完成客户数据清洗和模型输入特征处理。</span><span class="en"><b>Data &amp; features</b>: cleaned customer data and prepared model inputs.</span></li>
+      <li><span class="zh"><b>模型</b>:使用 FLAML 自动进行算法选择与超参数优化,训练 LightGBM 违约预测模型,并在独立测试集上评估。</span><span class="en"><b>Modeling</b>: used FLAML for algorithm selection and hyperparameter tuning, and trained a LightGBM default model evaluated on a held-out test set.</span></li>
+      <li><span class="zh"><b>实验管理</b>:用 MLflow 记录参数与指标,对比数据漂移前后的模型表现。</span><span class="en"><b>Experiment tracking</b>: logged parameters and metrics in MLflow and compared performance before and after data drift.</span></li>
+      <li><span class="zh"><b>工程化</b>:通过 Docker 与 Kubernetes 运行容器化训练流程,保证实验可复现。</span><span class="en"><b>Engineering</b>: ran containerized training on Docker and Kubernetes so experiments are reproducible.</span></li>
+    </ul>
+    <div class="callout">
+      <span class="zh">这是团队项目,目前暂无公开代码。</span>
+      <span class="en">This was a team project; the code is not public at the moment.</span>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="year">2026</span> <span class="zh">陈笑颜</span><span class="en">Xiaoyan Chen</span></footer>
+</body>
+</html>
