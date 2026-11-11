@@ -1,9 +1,9 @@
-# Xiaoyan Chen · Portfolio
+# 陈笑颜 · 成长地图作品集
 
-Personal portfolio site (Chinese / English), served by GitHub Pages.
+手绘风格的成长地图,每个地点对应一段真实经历。纯 HTML / CSS / JS,无构建、无外部 CDN。
 
-- `index.html` — profile, selected projects, experience, education, skills
-- `projects/` — project write-ups (RAG Q&A system, Olist Power BI dashboard, credit-risk model)
-- Plain HTML/CSS/JS, no build step and no external CDNs, so it loads in mainland China as well.
+- 内容集中在 `data.js`(经历、链接、截图路径、待补项)
+- `projects/` 保留三个项目的完整说明页,地图详情里的链接指向这里
+- 本地预览:`python -m http.server 8810`
 
-Preview locally: `python -m http.server 8800` and open http://localhost:8800.
+线上:https://xchen-xiaoyan.github.io
