@@ -4,51 +4,66 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>陈笑颜 · 成长地图</title>
-  <meta name="description" content="陈笑颜的作品集:一张手绘成长地图,每个地点对应一段真实的数据分析、机器学习与产品经历。">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fbf5e6'/%3E%3Cpath d='M12 44 Q24 20 36 38 T54 22' fill='none' stroke='%232b2a33' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='54' cy='22' r='6' fill='%23e8833a'/%3E%3C/svg%3E">
+  <meta name="description" content="陈笑颜的作品集:一座按主题分区的手绘数据小镇,每栋建筑对应一段真实的数据分析、机器学习与产品经历。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23f7f1e2'/%3E%3Cpath d='M12 44 Q24 20 36 38 T54 22' fill='none' stroke='%233d3a47' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='54' cy='22' r='6' fill='%23d4724a'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <a class="skip" href="#map-title" id="skip">跳到地图</a>
+  <a class="skip" href="#vp" id="skip">跳到地图</a>
 
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/>
+    <filter id="rough" x="-2%" y="-2%" width="104%" height="104%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
     </filter>
   </svg>
 
-  <header class="top">
-    <span class="brand" id="brand"></span>
-    <nav class="top-nav" aria-label="Site">
-      <button type="button" class="link-btn" id="nav-all"></button>
-      <button type="button" class="link-btn" id="nav-contact"></button>
+  <header class="mast" id="intro">
+    <div class="id">
+      <svg class="seal" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+        <rect x="3" y="3" width="42" height="42" rx="12" fill="#3d3a47"/>
+        <path d="M10 34 C16 17 24 38 29 25 S36 19 38 14" fill="none" stroke="#f7f1e2" stroke-width="5" stroke-linecap="round"/>
+        <path d="M10 34 C16 17 24 38 29 25 S36 19 38 14" fill="none" stroke="#3d3a47" stroke-width="1.3" stroke-dasharray="2.5 3.5" stroke-linecap="round"/>
+        <circle cx="38" cy="13.5" r="4.6" fill="#d4724a" stroke="#f7f1e2" stroke-width="2"/>
+      </svg>
+      <div class="who">
+        <h1 id="map-title" tabindex="-1"></h1>
+        <p class="sub" id="sub"></p>
+      </div>
+    </div>
+    <p class="tagline" id="tagline"></p>
+    <div class="mast-r">
+      <div class="actions">
+        <button type="button" class="btn primary" id="btn-start"></button>
+        <button type="button" class="btn strong" id="btn-all"></button>
+        <button type="button" class="btn" id="btn-contact"></button>
+      </div>
       <button type="button" class="lang" id="lang"></button>
-    </nav>
+    </div>
   </header>
 
   <main>
-    <section class="hero" id="hero">
-      <div class="map-shell" id="map-shell">
-      <div class="intro" id="intro">
-        <p class="kicker" id="kicker"></p>
-        <h1 id="map-title" tabindex="-1"></h1>
-        <p class="lede" id="lede"></p>
-        <p class="hint" id="hint"></p>
-        <div class="actions">
-          <button type="button" class="btn primary" id="btn-start"></button>
-          <button type="button" class="btn" id="btn-all"></button>
-          <button type="button" class="btn" id="btn-contact"></button>
+    <section class="stage" id="stage">
+      <div class="vp" id="vp" tabindex="0" role="group">
+        <div class="world" id="world"></div>
+        <div class="paper" aria-hidden="true"></div>
+        <div class="chips" id="chips"></div>
+        <button type="button" class="pill" id="vp-all"></button>
+        <div class="ctrl" id="ctrl">
+          <button type="button" id="z-in"></button>
+          <button type="button" id="z-out"></button>
+          <button type="button" id="z-home"></button>
         </div>
+        <p class="maphelp" id="maphelp"></p>
       </div>
-
-        <div class="map" id="map"></div>
-      </div>
+      <div class="dlist" id="dlist" hidden></div>
     </section>
 
-    <section class="contact" id="contact" tabindex="-1" aria-labelledby="contact-title">
-      <h2 id="contact-title"></h2>
-      <p id="contact-text"></p>
+    <section class="about" id="contact" tabindex="-1" aria-labelledby="about-title">
+      <div>
+        <h2 id="about-title"></h2>
+        <p id="about-text"></p>
+      </div>
       <ul class="contact-links" id="contact-links"></ul>
     </section>
   </main>
@@ -61,7 +76,7 @@
     <div class="grab" aria-hidden="true"></div>
     <div class="panel-bar">
       <button type="button" class="nav-btn" id="prev"></button>
-      <span class="count" id="count" aria-live="off"></span>
+      <span class="count" id="count"></span>
       <button type="button" class="nav-btn" id="next"></button>
       <button type="button" class="x-btn" id="close"></button>
     </div>

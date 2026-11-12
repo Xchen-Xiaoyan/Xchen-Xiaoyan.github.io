@@ -4,7 +4,9 @@
    - links: 没有 url 的链接不会显示;把 url 填上就会出现
    - images: src 是相对于 index.html 的路径,把截图放进 assets/img/ 即可
    - 「待补」的内容写在 pending 里,会显示成小标签,补好后删掉即可
-   - pos 是桌面地图上的位置(百分比),mpos 是手机路线上的位置
+   - district 决定这段经历属于哪个街区(见下面的 districts);位置、道路、标签全部自动生成,不用写坐标
+   - short 是地图近景里的短名字(中文 ≤ 10 字,英文 ≤ 22 个字符)
+   - 新增经历:复制一整段 { ... },改 id / district / 日期 / 文字即可
    ===================================================================== */
 window.PORTFOLIO = {
   profile: {
@@ -12,16 +14,40 @@ window.PORTFOLIO = {
     email: 'smile202406@163.com',
     github: 'https://github.com/Xchen-Xiaoyan',
     oldSite: 'https://xchen-xiaoyan.github.io',
+    tagline: {
+      zh: '芝加哥大学应用数据科学硕士,做过数据分析实习、机器学习与计算机视觉项目。',
+      en: 'M.S. Applied Data Science at UChicago. Data-analysis internships, machine-learning and computer-vision projects.'
+    },
     intro: {
       zh: '芝加哥大学应用数据科学硕士在读(预计 2026.12 毕业,GPA 4.00),本科毕业于威斯康星大学麦迪逊分校数学与数据科学专业(GPA 3.90)。做过数据分析实习、机器学习与计算机视觉项目,关注把杂乱的数据做成可复现、可解释的分析与模型。',
       en: 'M.S. in Applied Data Science at the University of Chicago (expected Dec 2026, GPA 4.00); B.S. in Mathematics and Data Science from UW–Madison (GPA 3.90). I have worked on data-analysis internships plus machine-learning and computer-vision projects, turning messy data into reproducible, explainable analyses and models.'
     }
   },
 
+  /* 街区:每个街区自动生成一栋代表建筑、项目数量和项目清单。
+     icon 可选 internships / observatory / archive / lab。
+     街区最多 6 个时位置是手工调好的,更多时自动排成网格。 */
+  districts: [
+    { id: 'internships', icon: 'internships',
+      name: { zh: '实习街区', en: 'Internship Row' },
+      blurb: { zh: '在真实业务里做数据分析与运营', en: 'Data work inside real businesses' } },
+    { id: 'observatory', icon: 'observatory',
+      name: { zh: '数据观测站', en: 'Data Observatory' },
+      blurb: { zh: '把数据变成看得懂的洞察和看板', en: 'Turning data into insights and dashboards' } },
+    { id: 'archive', icon: 'archive',
+      name: { zh: 'AI 档案馆', en: 'AI Archive' },
+      blurb: { zh: '从海量新闻里找主题、找答案', en: 'Finding themes and answers in large news archives' } },
+    { id: 'lab', icon: 'lab',
+      name: { zh: '工程研究区', en: 'Engineering & Research' },
+      blurb: { zh: '模型、流程与可复现的工程', en: 'Models, pipelines and reproducible engineering' } }
+  ],
+
   experiences: [
     {
       id: 'frog',
       icon: 'office',
+      district: 'internships',
+      short: { zh: 'Frog 数据分析', en: 'Frog · Data Analyst' },
       sortKey: '2024-06',
       start: '2024-06', end: '2024-10',
       mapName: { zh: 'Frog 数据分析实习', en: 'Frog · Data Analyst Intern' },
@@ -33,7 +59,6 @@ window.PORTFOLIO = {
         zh: '用 SQL 和 Python 把社交 App 的留存、转化和商业化数据变成每周报表。',
         en: 'SQL and Python turn a social app’s retention, conversion and monetization data into weekly reports.'
       },
-      pos: { x: 10, y: 62 }, mpos: { x: 30, y: 230 },
       background: {
         zh: ['Frog 是一款社交应用,有内容发布、观看、互动和钱包商业化等场景,需要持续的数据支持。', '数据需求来自产品、运营和海外同事,指标口径需要对齐。'],
         en: ['Frog is a social app with content publishing, viewing, interaction and wallet monetization, all needing steady data support.', 'Requests came from product, operations and overseas colleagues, so metric definitions had to be aligned.']
@@ -58,6 +83,8 @@ window.PORTFOLIO = {
     {
       id: 'bairong',
       icon: 'tower',
+      district: 'internships',
+      short: { zh: '百融 数据运营', en: 'Bairong · Data Ops' },
       sortKey: '2024-10',
       start: '2024-10', end: '2025-01',
       mapName: { zh: '百融云创 数据运营实习', en: 'Bairong · Data Operations Intern' },
@@ -69,7 +96,6 @@ window.PORTFOLIO = {
         zh: '把信贷营销数据、圈选模型回溯和语音对话样本,变成可比较的结论。',
         en: 'Turned credit-marketing data, model back-tests and voice-dialogue samples into comparable findings.'
       },
-      pos: { x: 27, y: 78 }, mpos: { x: 70, y: 470 },
       background: {
         zh: ['金融营销需要比较不同触达策略的效果,并评估营销模型圈选出的人群表现。', '智能语音对话也需要真实样本来迭代识别规则和话术。'],
         en: ['Financial marketing needs outreach strategies compared and model-selected audiences evaluated.', 'The voice-dialogue system also needed real samples to iterate its recognition rules and scripts.']
@@ -94,6 +120,8 @@ window.PORTFOLIO = {
     {
       id: 'credit',
       icon: 'lab',
+      district: 'lab',
+      short: { zh: '违约风险预测', en: 'Default Risk Model' },
       sortKey: '2025-09',
       start: '2025-09', end: '2025-12',
       mapName: { zh: '信用卡违约风险预测', en: 'Credit Card Default Prediction' },
@@ -105,7 +133,6 @@ window.PORTFOLIO = {
         zh: '带队用 FLAML 选模型、MLflow 管实验,把违约预测做成可复现的流程。',
         en: 'Led a team using FLAML for model selection and MLflow for tracking, so default prediction is reproducible.'
       },
-      pos: { x: 45, y: 64 }, mpos: { x: 30, y: 710 },
       background: {
         zh: ['课程团队项目:根据客户数据预测信用卡违约风险。', '除了模型本身,还要求实验可追踪、结果可复现。'],
         en: ['A course team project: predict credit-card default risk from customer data.', 'Beyond the model itself, experiments had to be traceable and results reproducible.']
@@ -130,6 +157,8 @@ window.PORTFOLIO = {
     {
       id: 'news',
       icon: 'library',
+      district: 'archive',
+      short: { zh: 'AI 新闻 & RAG', en: 'AI News & RAG' },
       sortKey: '2025-12',
       start: '2025-12', end: '2026-02',
       mapName: { zh: 'AI 新闻分析 & RAG 问答', en: 'AI News Analysis & RAG Q&A' },
@@ -141,7 +170,6 @@ window.PORTFOLIO = {
         zh: '13 万篇 AI 新闻 → 主题分析,再做成每句都标出处的问答系统。',
         en: '130k+ AI news articles → topic analysis → a Q&A system that cites a source for every sentence.'
       },
-      pos: { x: 60, y: 36 }, mpos: { x: 70, y: 950 },
       background: {
         zh: ['想了解 AI 如何影响各个行业和公司,自己翻新闻太慢;直接问大模型又无法核实,还可能编造。', '目标:快,而且每句话都能追溯到原文。'],
         en: ['Reading the news yourself is slow; asking a chatbot is fast but unverifiable and sometimes invented.', 'Goal: fast, with every claim traceable to its source.']
@@ -171,6 +199,8 @@ window.PORTFOLIO = {
     {
       id: 'here',
       icon: 'bridge',
+      district: 'lab',
+      short: { zh: 'HERE 桥梁净高', en: 'HERE · Clearance' },
       sortKey: '2026-03',
       start: '2026-03', end: '2026-07',
       mapName: { zh: 'HERE 桥梁净高估计', en: 'HERE · Clearance Height' },
@@ -182,7 +212,6 @@ window.PORTFOLIO = {
         zh: '只靠街景照片,估计路牌和桥梁下方的净空高度。',
         en: 'Estimating clearance height under signs and bridges from street-level photos alone.'
       },
-      pos: { x: 76, y: 62 }, mpos: { x: 30, y: 1190 },
       background: {
         zh: ['与 HERE Technologies 合作的毕业项目(Capstone):4 人团队,HERE 一位同事对接,学校导师指导。', '目标:只用街景照片,估计路牌和桥梁等头顶结构的净空高度。'],
         en: ['A capstone with HERE Technologies: a team of four, a HERE sponsor contact and a faculty advisor.', 'Goal: estimate the clearance height of road signs and overhead structures from street-level photos only.']
@@ -207,6 +236,8 @@ window.PORTFOLIO = {
     {
       id: 'olist',
       icon: 'observatory',
+      district: 'observatory',
+      short: { zh: 'Olist 看板', en: 'Olist Dashboard' },
       sortKey: '9999',
       date: { zh: '时间待补', en: 'Date TBD' },
       mapName: { zh: 'Olist 电商分析看板', en: 'Olist E-commerce Dashboard' },
@@ -218,7 +249,6 @@ window.PORTFOLIO = {
         zh: '10 万笔订单的 6 页 Power BI 看板:增长靠拉新,问题集中在少数卖家。',
         en: 'A six-page Power BI dashboard on 100k orders: growth came from new buyers; problems sit with a few sellers.'
       },
-      pos: { x: 87, y: 36 }, mpos: { x: 70, y: 1430 },
       background: {
         zh: ['基于巴西电商 Olist 公开的 10 万笔订单、9 张业务表。', '想回答三个问题:增长从哪里来?问题出在哪里?该对谁做什么?'],
         en: ['Built on Olist’s public Brazilian e-commerce data: 100k orders across 9 tables.', 'Three questions: where did growth come from, what is going wrong, and who should be targeted?']
@@ -269,7 +299,9 @@ window.PORTFOLIO = {
   ui: {
     zh: {
       siteTitle: '陈笑颜 · 成长地图',
-      kicker: '我的成长地图 · 6 段经历',
+      allMap: '全景', home: '返回全景', zoomIn: '放大', zoomOut: '缩小', projCount: '{n} 个项目', listTitle: '项目清单', listOpen: '展开清单', listClose: '收起清单',
+      mapHelp: '拖动平移,双指或按钮缩放;方向键平移,+ / − 缩放,Esc 返回全景', districtNav: '街区', aboutTitle: '关于我', focused: '已聚焦:', backed: '已回到全景', mapAria: '成长地图,按街区组织',
+      kicker: '我的成长地图',
       hint: '点击地图上的地点,看我在那里做了什么。',
       start: '开始探索', all: '查看全部经历', contact: '联系我',
       mapLabel: '成长地图:6 个可点击的地点',
@@ -284,7 +316,9 @@ window.PORTFOLIO = {
     },
     en: {
       siteTitle: 'Xiaoyan Chen · Growth Map',
-      kicker: 'My growth map · 6 stops',
+      allMap: 'Overview', home: 'Back to overview', zoomIn: 'Zoom in', zoomOut: 'Zoom out', projCount: '{n} project(s)', listTitle: 'Projects', listOpen: 'Show list', listClose: 'Hide list',
+      mapHelp: 'Drag to pan, pinch or use the buttons to zoom; arrow keys pan, + / − zoom, Esc returns to overview', districtNav: 'Districts', aboutTitle: 'About me', focused: 'Focused: ', backed: 'Back to overview', mapAria: 'Growth map organised by district',
+      kicker: 'My growth map',
       hint: 'Click a place on the map to see what I did there.',
       start: 'Start exploring', all: 'View all experience', contact: 'Contact me',
       mapLabel: 'Growth map with 6 clickable places',
@@ -297,21 +331,5 @@ window.PORTFOLIO = {
       signStart: 'Start', signEnd: 'More soon', opened: 'Opened: ', tourLabel: 'Dashboard pages',
       footer: '© 2026 Xiaoyan Chen · hand-drawn growth map'
     }
-  },
-
-  /* 地图上的装饰:x/y 为桌面端百分比位置,w 为宽度(占地图宽度的 %),m 为手机上的位置 */
-  decor: [
-    { t: 'tree', x: 5, y: 95, w: 4.5, m: { x: 8, y: 330, w: 52 } },
-    { t: 'pine', x: 20, y: 94, w: 3.6, m: { x: 90, y: 650, w: 44 } },
-    { t: 'tree', x: 37, y: 52, w: 4, m: { x: 10, y: 560, w: 50 } },
-    { t: 'pine', x: 69, y: 93, w: 3.6, m: { x: 12, y: 900, w: 44 } },
-    { t: 'tree', x: 84, y: 91, w: 4.5, m: { x: 88, y: 1160, w: 50 } },
-    { t: 'pine', x: 96, y: 64, w: 3.6, m: { x: 10, y: 1480, w: 44 } },
-    { t: 'tree', x: 50, y: 27, w: 3.8, m: { x: 90, y: 330, w: 50 } },
-    { t: 'cloud', x: 46, y: 12, w: 12, m: { x: 70, y: 70, w: 110 } },
-    { t: 'cloud', x: 74, y: 14, w: 10, m: { x: 22, y: 700, w: 90 } },
-    { t: 'cloud', x: 95, y: 12, w: 8, m: { x: 80, y: 1090, w: 90 } },
-    { t: 'sign', x: 18.5, y: 62, w: 6.5, text: 'signStart', m: { x: 55, y: 215, w: 70 } },
-    { t: 'sign', x: 93, y: 60, w: 7.5, text: 'signEnd', m: { x: 40, y: 1590, w: 84 } }
-  ]
+  }
 };
