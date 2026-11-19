@@ -328,9 +328,8 @@ window.PORTFOLIO = {
         en: ['Gemini: 96% → 98% answer accuracy, 5/5 SQL errors self-corrected, 100% on clarify and decline', 'Local qwen 7B: 52% → 66%, multi-table joins 50% → 90%', 'Finding: with tools the small model stopped asking clarifying questions (100% → 40%), so the demo runs on Gemini', 'Cost: median latency 0.7 s → 2.0 s']
       },
       tags: ['Function calling', 'Gemini', 'Ollama', 'DuckDB', 'SQL', 'Streamlit', 'LLM evaluation'],
-      pending: { zh: ['在线演示待部署'], en: ['Live demo TBD'] },
       links: [
-        { label: { zh: '在线演示', en: 'Live demo' }, url: '' },
+        { label: { zh: '在线演示', en: 'Live demo' }, url: 'https://olist-sql-agent.streamlit.app' },
         { label: { zh: '代码', en: 'Code' }, url: 'https://github.com/Xchen-Xiaoyan/olist-sql-agent' },
         { label: { zh: '评测报告', en: 'Evaluation report' }, url: 'https://github.com/Xchen-Xiaoyan/olist-sql-agent/blob/master/eval/REPORT.md' }
       ],
