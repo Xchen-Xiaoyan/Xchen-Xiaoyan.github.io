@@ -293,6 +293,51 @@ window.PORTFOLIO = {
             img: 'assets/img/olist-retention.jpg', alt: { zh: '用户留存页截图', en: 'Retention page' } }
         ]
       }
+    },
+
+    {
+      id: 'sqlagent',
+      icon: 'workshop',
+      district: 'observatory',
+      short: { zh: '数据分析 Agent', en: 'SQL Analyst Agent' },
+      sortKey: '2026-11',
+      date: { zh: '2026.11', en: 'Nov 2026' },
+      mapName: { zh: '数据分析 Agent(Text-to-SQL)', en: 'Data Analysis Agent (Text-to-SQL)' },
+      kind: { zh: '分析工坊', en: 'Workshop' },
+      name: { zh: '电商数据分析 Agent(Text-to-SQL)', en: 'E-commerce Data Analysis Agent (Text-to-SQL)' },
+      role: { zh: '个人项目', en: 'Personal project' },
+      org: 'Olist public dataset',
+      preview: {
+        zh: '用中文或英文提问,Agent 自己写 SQL、出错自动修正、画图作答;问题不清楚会反问。',
+        en: 'Ask in plain language; the agent writes SQL, fixes its own errors, charts the result, and asks back when unsure.'
+      },
+      background: {
+        zh: ['在看板项目同一份 Olist 数据上,让不会写 SQL 的人也能直接问"哪个州的卖家延迟最多"。', '同时想弄清楚:和"让模型直接写一条 SQL"相比,Agent 到底好在哪里、代价是什么。'],
+        en: ['On the same Olist data as the dashboard, let people who do not write SQL ask questions like "which seller state has the most late orders".', 'And find out what an agent actually buys over asking a model for one SQL query, and at what cost.']
+      },
+      mine: {
+        zh: ['独立完成:Agent 设计与实现、数据字典与安全执行、聊天界面、评测集与评测报告'],
+        en: ['End to end on my own: agent design, data dictionary and safe execution, chat UI, benchmark and evaluation report']
+      },
+      how: {
+        zh: ['工具调用:模型调用"执行 SQL、画图、反问、拒答"4 个工具;SQL 报错时把数据库报错回传给模型,由它改写重试,最多 8 步', '先查值再过滤(如"圣保罗市"在库里是 sao paulo),写最终查询前按指标口径清单自检', '安全:只读、单条语句、禁止访问本地文件与网络、超时和行数上限', 'Gemini 与本地 Ollama 可切换;Streamlit 界面展示每一步 SQL、报错修正、图表和结果表', '自建 60 题评测集(7 类,每题附标准 SQL),对比单次生成与 Agent,判分看结果表和文字答案两级,并人工复核误判'],
+        en: ['Tool calling: run_sql, make_chart, ask_clarification and decline; database errors are fed back so the model rewrites the query, up to 8 steps', 'Looks up stored values before filtering (São Paulo is stored as sao paulo) and checks a metric-definition list before the final query', 'Safety: read-only single statements, no file or network access, timeouts and row caps', 'Gemini and local Ollama backends; the Streamlit UI shows every SQL step, error fix, chart and result table', 'A 60-question benchmark (7 categories, gold SQL) comparing single-shot SQL with the agent, graded on the result table and the written answer, with false positives audited by hand']
+      },
+      result: {
+        zh: ['Gemini:答对率 96% → 98%,SQL 报错 5/5 自动修正,反问与拒答 100%', '本地 qwen 7B:答对率 52% → 66%,多表关联题 50% → 90%', '发现:小模型加工具后反而不会反问(100% → 40%),所以线上用 Gemini', '代价:延迟中位数 0.7 秒 → 2.0 秒'],
+        en: ['Gemini: 96% → 98% answer accuracy, 5/5 SQL errors self-corrected, 100% on clarify and decline', 'Local qwen 7B: 52% → 66%, multi-table joins 50% → 90%', 'Finding: with tools the small model stopped asking clarifying questions (100% → 40%), so the demo runs on Gemini', 'Cost: median latency 0.7 s → 2.0 s']
+      },
+      tags: ['Function calling', 'Gemini', 'Ollama', 'DuckDB', 'SQL', 'Streamlit', 'LLM evaluation'],
+      pending: { zh: ['在线演示待部署'], en: ['Live demo TBD'] },
+      links: [
+        { label: { zh: '在线演示', en: 'Live demo' }, url: '' },
+        { label: { zh: '代码', en: 'Code' }, url: 'https://github.com/Xchen-Xiaoyan/olist-sql-agent' },
+        { label: { zh: '评测报告', en: 'Evaluation report' }, url: 'https://github.com/Xchen-Xiaoyan/olist-sql-agent/blob/master/eval/REPORT.md' }
+      ],
+      images: [
+        { src: 'assets/img/sql-agent-demo.jpg', alt: { zh: '提问后,Agent 给出前 5 个州的延迟订单与延迟率,并自动画图', en: 'The agent answers with the top 5 states by late orders and draws a chart' } },
+        { src: 'assets/img/sql-agent-steps.jpg', alt: { zh: '分析过程:每一步执行的 SQL 都可以展开查看', en: 'Analysis steps: every SQL query the agent ran can be expanded' } }
+      ]
     }
   ],
 
